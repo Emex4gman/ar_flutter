@@ -1,6 +1,3 @@
-import 'dart:io';
-
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
@@ -22,19 +19,13 @@ class _ArviewState extends State<Arview> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('View Earth And Moon'),
+        centerTitle: true,
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              height: 500,
-              child: ArCoreView(
-                onArCoreViewCreated: _onArCoreViewCreated,
-                enablePlaneRenderer: true,
-                enableTapRecognizer: true,
-              ),
-            ),
-          ],
+        child: ArCoreView(
+          onArCoreViewCreated: _onArCoreViewCreated,
+          enablePlaneRenderer: true,
+          enableTapRecognizer: true,
         ),
       ),
     );
