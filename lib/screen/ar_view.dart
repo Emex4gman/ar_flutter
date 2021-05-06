@@ -32,15 +32,16 @@ class _ArviewState extends State<Arview> {
   }
 
   void onTapHandler(String name) {
+    print("this is " + name);
     showDialog<void>(
       context: context,
-      builder: (BuildContext context) => AlertDialog(content: Text('onNodeTap on $name')),
+      builder: (BuildContext context) => AlertDialog(content: Text('This is $name')),
     );
   }
 
   void _onArCoreViewCreated(ArCoreController controller) async {
     arCoreController = controller;
-    arCoreController.onNodeTap = (name) => print("this is " + name);
+    arCoreController.onNodeTap = (name) => onTapHandler(name);
     _addEarth(arCoreController);
   }
 
@@ -57,6 +58,7 @@ class _ArviewState extends State<Arview> {
 
     final moon = ArCoreNode(
       shape: moonShape,
+      name: "moon",
       position: vector.Vector3(0.2, 0, 0),
       rotation: vector.Vector4(0, 0, 0, 0),
     );
